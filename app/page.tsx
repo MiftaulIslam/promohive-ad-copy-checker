@@ -1,6 +1,10 @@
 import type { Viewport } from 'next';
 import { PreviewDesc, PreviewHead, PreviewMeta, PreviewMetaHead, PreviewPath, Sheet, Summary } from '@/components/Checker';
 import { RulerArt } from '@/components/Ruler';
+import Image from 'next/image';
+import woodtype from '@/assets/photos/woodtype.jpg';
+import metaltype from '@/assets/photos/metaltype.jpg';
+import loom from '@/assets/photos/loom.jpg';
 import { ToolBar, ToolFoot } from '@/components/Shell';
 import { graphemes, rulerTotal } from '@/lib/logic';
 import './page.css';
@@ -142,6 +146,8 @@ export default function Page() {
           </div>
         </section>
 
+        <figure className="ph-strip" aria-hidden="true"><Image className="ph-bg" src={woodtype} alt="" fill sizes="100vw" placeholder="blur" /></figure>
+
         <section className="limits below" aria-labelledby="limits-h">
           <div className="wrap">
             <h2 id="limits-h" data-in>Google says no.<br />Meta says See more</h2>
@@ -157,6 +163,7 @@ export default function Page() {
                 <h3>Soft limit</h3>
                 <p>Meta accepts longer text, so treat these as working rules for what stays visible. Primary text is flagged past 125 characters, where many placements cut it with See more, and headlines past 40.</p>
               </div>
+              <figure className="limits__photo" aria-hidden="true"><Image className="ph-bg" src={metaltype} alt="" fill sizes="360px" placeholder="blur" /></figure>
             </div>
 
             <div className="tbl" data-in>
@@ -183,7 +190,8 @@ export default function Page() {
           </div>
         </section>
 
-        <section className="desks below" aria-labelledby="desks-h">
+        <section className="desks below has-photo" aria-labelledby="desks-h">
+          <Image className="ph-bg" src={loom} alt="" fill sizes="100vw" placeholder="blur" />
           <div className="wrap">
             <h2 id="desks-h" data-in>Set for two desks</h2>
 
