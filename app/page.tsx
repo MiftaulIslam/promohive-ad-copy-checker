@@ -5,11 +5,13 @@ import Image from 'next/image';
 import woodtype from '@/assets/photos/woodtype.jpg';
 import metaltype from '@/assets/photos/metaltype.jpg';
 import loom from '@/assets/photos/loom.jpg';
-import { ToolBar, ToolFoot } from '@/components/Shell';
+import { FAQ, Guide } from '@/components/Guide';
+import { ToolBar, ToolFoot, ToolJsonLd } from '@/components/Shell';
 import { graphemes, rulerTotal } from '@/lib/logic';
+import { tool } from '@/lib/tool';
 import './page.css';
 
-export const viewport: Viewport = { themeColor: '#e0562a', colorScheme: 'light' };
+export const viewport: Viewport = { themeColor: tool.themeColor, colorScheme: 'light' };
 
 const Hex = () => <path d="M8.6 3h14.8l7.4 13-7.4 13H8.6L1.2 16z" fill="#f2a516" />;
 
@@ -127,7 +129,10 @@ export default function Page() {
         <section className="bench" aria-labelledby="page-title">
           <div className="wrap bench__grid">
             <h1 id="page-title" className="bench__title">Will this ad fit</h1>
-            <Summary />
+            <div className="bench__lede">
+              <p className="bench__intro">A free ad copy length checker for copywriters and media buyers. It gives live character counts for Google search ad and Meta ad fields. No sign-up, and it runs in your browser.</p>
+              <Summary />
+            </div>
             <div className="proof">
               <i className="crop crop--tl" aria-hidden="true" /><i className="crop crop--tr" aria-hidden="true" /><i className="crop crop--bl" aria-hidden="true" /><i className="crop crop--br" aria-hidden="true" />
               <Sheet />
@@ -209,8 +214,10 @@ export default function Page() {
             <p className="desks__how">Paste each line into the field it belongs to, watch the count, trim anything amber or past the rule, then paste the finished lines into Google Ads or Meta Ads Manager.</p>
           </div>
         </section>
+        <Guide />
       </main>
       <ToolFoot />
+      <ToolJsonLd faq={FAQ} />
     </>
   );
 }

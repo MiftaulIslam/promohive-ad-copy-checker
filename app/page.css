@@ -15,7 +15,9 @@ body { background: var(--ember); --focus: var(--ink); font-variant-numeric: norm
   grid-template-areas: "title note" "proof previews";
 }
 .bench__title { grid-area: title; font-size: clamp(112px, 9.44vw, 136px); line-height: .78; letter-spacing: -.045em; font-weight: 800; white-space: nowrap; padding-bottom: 16px; }
-.bench__note { grid-area: note; font-weight: 600; font-size: 17px; line-height: 1.4; padding-bottom: 20px; text-wrap: pretty; }
+.bench__lede { grid-area: note; }
+.bench__intro { font-size: 17px; line-height: 1.4; padding-bottom: 8px; text-wrap: pretty; }
+.bench__note { font-weight: 600; font-size: 17px; line-height: 1.4; padding-bottom: 20px; text-wrap: pretty; }
 
 /* ---------- The proof sheet */
 
@@ -229,7 +231,8 @@ tr[data-soft] .g-limit { background: repeating-linear-gradient(to bottom, var(--
 @media (width < 1240px) {
   .bench__grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "title" "proof" "note" "previews"; }
   .bench__title { font-size: clamp(72px, 19vw, 112px); white-space: normal; line-height: .9; padding-bottom: 20px; }
-  .bench__note { padding-block: 24px 16px; font-size: 18px; }
+  .bench__intro { padding-top: 24px; font-size: 18px; }
+  .bench__note { padding-block: 0 16px; font-size: 18px; }
   .previews { position: static; max-width: 560px; }
   .crop { display: none; }
 }
